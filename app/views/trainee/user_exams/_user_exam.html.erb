@@ -1,0 +1,20 @@
+<tr>
+  <td><%= l(user_exam.created_at, format: :long) %></td>
+  <td><%= user_exam.subject.name %></td>
+  <td>
+    <span class="<%= class_for_user_exam_status(user_exam) %>">
+      <%= user_exam.status %>
+    </span>
+  </td>
+  <td><%= user_exam.exam.time %></td>
+  <td><%= user_exam.exam.total_number_questions %></td>
+  <td><%= convert_num_to_time user_exam.spent_time %></td>
+  <td><%= user_exam.total_score || "-" %></td>
+  <td>
+    <% if user_exam.start? %>
+      <%= link_to t("user_exams.start"), user_exam_path(id: user_exam.id), class:"btn btn-primary button" %>
+    <% else %>
+      <%= link_to t("user_exams.view"), user_exam_path(id: user_exam.id), class:"btn btn-success button" %>
+    <% end %>
+  </td>
+</tr>

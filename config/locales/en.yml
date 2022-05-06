@@ -1,0 +1,28 @@
+en:
+  base_title: "Exam Management System"
+  english: "English"
+  vietnamese: "Vietnamese"
+  previous: "Previous"
+  next: "Next"
+  question: "Questions"
+  subject: "Subjects"
+  user: "Users"
+  trainee: "Trainees"
+  supervisor: "Supervisors"
+  new_user: "New user"
+  access_denied!: "Access denied!"
+  exam: "Exams"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      long: "%Y-%m-%d %H:%M"
+      short: "%d %b %H:%M"
+  unauthorized:
+    message: "You are not authorized to access this page."
+  views:
+      pagination:
+        first: "&laquo; First"
+        last: "Last &raquo;"
+        previous: "&lsaquo; Prev"
+        next: "Next &rsaquo;"
+        truncate: "&hellip;"

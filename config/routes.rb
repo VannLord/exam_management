@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     scope module: :trainee do
       resources :user_exams
     end
+
     devise_for :users
   end
 end

@@ -1,0 +1,39 @@
+<%= will_paginate %>
+
+<div class="container-fluid">
+  <h1 class="mt-4 mb-5 text-center">All subjects</h1>
+  <%= link_to "Create subject", new_subject_path, class: "btn btn-primary mb-4" %>
+  <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Subject name</th>
+          <th>Exam number</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @subjects.each do |subject| %>
+        <tr>
+          <td><%= subject.name %></td>
+          <td><%= subject.exams.count %></td>
+          <td class="edit">
+            <%= link_to(edit_subject_path(subject)) do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+          <td class="delete">
+            <%= link_to subject_path(subject), method: :delete, data: { confirm: "You sure?" } do%>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= will_paginate %>

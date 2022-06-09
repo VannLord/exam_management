@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <% if current_user.supervisor?%>
+    <%= link_to "Trainees", trainees_users_path %>
+  <% else %>
+    <%= link_to "User Exam ", user_exams_path %>
+  <% end%>
+<% else %>
+  <%= link_to "Sign in", signup_path%>
+<% end %>

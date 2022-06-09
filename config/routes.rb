@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    root "sessions#new"
+    root to: "static_pages#home"
+    get "static_pages/home"
     as :user do
       get "/signup", to: "devise/sessions#new"
       post "/signup", to: "devise/sessions#create"
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
         post "/create_list_questions", to: "questions#create_list"
       end
       resources :exams
+      resources :subjects
       resources :trainees do
         resources :user_exams
       end

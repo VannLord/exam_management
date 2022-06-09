@@ -14,7 +14,8 @@ class Supervisor::QuestionsController < SupervisorController
   end
 
   def create_list
-    FileService.read_questions_from_file!(@file_path, @subject)
+    byebug
+    FileService.read_questions_from_file!(@file_path, @subject, params[:exam_name])
     flash[:success] = t "questions.create_list_success"
     redirect_to questions_path
   rescue ActiveRecord::ActiveRecordError

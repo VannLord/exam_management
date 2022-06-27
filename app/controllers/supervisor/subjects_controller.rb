@@ -14,7 +14,6 @@ class Supervisor::SubjectsController < SupervisorController
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      byebug
       flash[:success] = "Create sucessful"
       redirect_to subjects_path
     else

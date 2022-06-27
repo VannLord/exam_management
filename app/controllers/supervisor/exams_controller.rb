@@ -12,6 +12,11 @@ class Supervisor::ExamsController < SupervisorController
     @questions = Exam.questions_sort_by_created_at_asc(@exam).includes(:answers)
   end
 
+  def destroy
+    @exam.destroy
+    flash[:success] = t("exams.deleted")
+    redirect_to exams_path
+  end
   private
 
   def load_exam

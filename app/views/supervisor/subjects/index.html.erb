@@ -25,7 +25,7 @@
             <% end %>
           </td>
           <td class="delete">
-            <%= link_to subject_path(subject), method: :delete, data: { confirm: "You sure?" } do%>
+            <%= link_to subject_path(subject), method: :delete, data: { confirm: t("you_sure") } do%>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
           </td>

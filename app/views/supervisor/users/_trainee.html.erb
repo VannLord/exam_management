@@ -7,18 +7,14 @@
       <i class="glyphicon glyphicon-list-alt"></i>
     <% end %>
   </td>
-  <td class="profile">
-    <%= link_to(user_path(trainee)) do %>
-      <i class="glyphicon glyphicon-user"></i>
-    <% end %>
-  </td>
+
   <td class="edit">
     <%= link_to(edit_user_path(trainee)) do %>
       <i class="glyphicon glyphicon-edit"></i>
     <% end %>
   </td>
   <td class="delete">
-    <%= link_to(user_path(trainee), method: :delete) do %>
+    <%= link_to(user_path(trainee), method: :delete, data: { confirm: t("you_sure") } ) do %>
       <i class="glyphicon glyphicon-trash"></i>
     <% end %>
   </td>

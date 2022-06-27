@@ -1,7 +1,7 @@
 class Supervisor::UserExamsController < SupervisorController
   before_action :load_trainee, only: [:index, :show]
   before_action :correct_user, only: :show
-  authorize_resource
+  load_and_authorize_resource
 
   def index
     @user_exams = @trainee.user_exams
@@ -19,6 +19,10 @@ class Supervisor::UserExamsController < SupervisorController
       redirect_to user_exams_path
     end
     @user_answer_ids = @user_exam.answers.pluck(:id)
+    @total = @user_exam.questions.reduce(0) do |sum, q|
+      sum + 10
+    end
+
   end
 
   private
@@ -32,12 +36,6 @@ class Supervisor::UserExamsController < SupervisorController
   end
 
   def correct_user
-
-    # @trainee = User.find_by id: params[:trainee_id]
-    # return if @trainee
-
-    # flash[:danger] = t "trainees.not_found!"
-    # redirect_to root_path
     @user_exam = @trainee.user_exams.find_by id: params[:id]
     return if @user_exam
 

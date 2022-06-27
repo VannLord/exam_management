@@ -1,5 +1,12 @@
 vi:
+  score: "Điểm: "
+  welcome: "Chào mừng đến với hệ thống bài kiểm tra"
+  sign_in: "Đăng nhập"
+  take_exam: "Vào thi"
+  profile_updated: "Cập nhật hồ sơ thành công"
+  you_sure: "Bạn chắc chắn chứ ?"
   base_title: "Hệ thống quản lý bài thi"
+  confirm: "Xác nhận"
   english: "Tiếng anh"
   vietnamese: "Tiếng việt"
   previous: "Trước"

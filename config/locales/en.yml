@@ -1,4 +1,10 @@
 en:
+  welcome: "Welcome to Exam System"
+  sign_in: " Sign in"
+  take_exam: "Take the exam "
+  profile_updated: "Profile updated"
+  you_sure: "You sure ?"
+  confirm: "Confirm"
   base_title: "Exam Management System"
   english: "English"
   vietnamese: "Vietnamese"
@@ -26,3 +32,4 @@ en:
         previous: "&lsaquo; Prev"
         next: "Next &rsaquo;"
         truncate: "&hellip;"
+

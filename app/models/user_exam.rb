@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: user_exams
+#
+#  id          :bigint           not null, primary key
+#  spent_time  :integer          default(0)
+#  status      :integer          default("start")
+#  total_score :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  exam_id     :bigint           not null
+#  user_id     :bigint           not null
+#
+# Indexes
+#
+#  index_user_exams_on_exam_id  (exam_id)
+#  index_user_exams_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (exam_id => exams.id)
+#  fk_rails_...  (user_id => users.id)
+#
 class UserExam < ApplicationRecord
   belongs_to :user
   belongs_to :exam

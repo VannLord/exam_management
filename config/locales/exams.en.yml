@@ -18,4 +18,5 @@ en:
     total_questions: "Total questions"
     view: "View"
     edit: "Edit"
-    delete: "Delete"
+    deleted: "Deleted Exam succesfully"
+    create: "Create new exam"

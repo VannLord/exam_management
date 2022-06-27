@@ -1,5 +1,10 @@
 <% provide :title, t("exams.title.all") %>
 <h1><%= t("exams.title.all") %></h1>
+<div>
+  <%= link_to new_list_questions_path, class: "btn btn-primary button" do %>
+    <%= t("exams.create") %>&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i>
+  <% end %>
+</div>
 <div class="row">
   <%= search_form_for @q, class: "input-group search-box" do |f| %>
     <%= f.text_field :name_or_subject_name_cont, class: "form-control", placeholder: t("exams.search_for") %>
@@ -48,7 +53,7 @@
           <% end %>
         </th>
         <th class="exam_view"><%= t("exams.view") %></th>
-        <th class="exam_edit"><%= t("exams.edit") %></th>
+        <!-- <th class="exam_edit"><%= t("exams.edit") %></th> -->
         <th class="exam_delete"><%= t("exams.delete") %></th>
       </tr>
     </thead>

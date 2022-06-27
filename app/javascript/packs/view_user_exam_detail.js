@@ -14,13 +14,13 @@ $(() =>
   }
 );
 
-$(() =>
-  {
-    $(window).on('blur', () => {
-      $('form:first').submit()
-    })
-  }
-)
+// $(() =>
+//   {
+//     $(window).on('blur', () => {
+//       $('form:first').submit()
+//     })
+//   }
+// )
 
 $(() => {
   if (window.history && window.history.pushState) {

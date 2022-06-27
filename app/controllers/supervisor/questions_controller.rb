@@ -1,6 +1,7 @@
 class Supervisor::QuestionsController < SupervisorController
   before_action :load_subject, :load_file_param, :correct_file_type,
                 only: :create_list
+  before_action :find_question, only: :destroy
   load_and_authorize_resource
 
   def index
@@ -9,15 +10,24 @@ class Supervisor::QuestionsController < SupervisorController
                            .per_page(Settings.page)
   end
 
+  def destroy
+    @question.destroy!
+    flash[:success] = t "questions.deleted"
+    redirect_to questions_path
+   rescue ActiveRecord::ActiveRecordError
+    flash[:danger] = t "questions.deleted_failed"
+    redirect_to questions_path
+
+  end
+
   def new_list
     @subjects = Subject.sort_by_created_at_desc
   end
 
   def create_list
-    byebug
-    FileService.read_questions_from_file!(@file_path, @subject, params[:exam_name])
+    FileService.read_questions_from_file!(@file_path, @subject, params[:list_questions][:exam_name])
     flash[:success] = t "questions.create_list_success"
-    redirect_to questions_path
+    redirect_to exams_path
   rescue ActiveRecord::ActiveRecordError
     flash[:danger] = t "questions.create_list_fail"
     redirect_to new_list_questions_path
@@ -47,5 +57,9 @@ class Supervisor::QuestionsController < SupervisorController
 
     flash[:danger] = t "questions.please_choice_correct_file_type!"
     redirect_to new_list_questions_path
+  end
+
+  def find_question
+    @question = Question.find_by(id: params[:id])
   end
 end

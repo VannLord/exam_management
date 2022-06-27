@@ -2,6 +2,8 @@ class Trainee::UserExamsController < TraineeController
   before_action :correct_user, only: %i(show update)
   before_action :check_user_exam_done?, only: :update
   before_action :load_subject, only: :create
+  before_action :a, only: :show
+
   load_and_authorize_resource
 
   def index
@@ -44,6 +46,10 @@ class Trainee::UserExamsController < TraineeController
 
   private
 
+  def a
+    redirect_to trainee_user_exam_path( { trainee_id: @user_exam.user_id, id: @user_exam.id } ) if current_user.supervisor?
+  end
+
   def load_user_answer_ids
     @user_answer_ids = []
     questions_attributes = params[:user_exam][:questions_attributes]
@@ -55,7 +61,7 @@ class Trainee::UserExamsController < TraineeController
   end
 
   def correct_user
-    @user_exam = current_user.user_exams.find_by id: params[:id]
+    @user_exam = UserExam.find_by id: params[:id]
     return if @user_exam
 
     flash[:danger] = t("user_exams.not_found!")

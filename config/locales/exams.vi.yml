@@ -18,4 +18,5 @@ vi:
     total_questions: "Tổng câu"
     view: "Xem"
     edit: "Sửa"
-    delete: "Xoá"
+    deleted: "Xóa bài thi thành công"
+    create: "Tạo bài thi"

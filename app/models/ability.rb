@@ -5,7 +5,6 @@ class Ability
 
   def initialize user, namespace
     return unless user
-
     case namespace
     when Settings.namespace.trainee
       trainee(user) if user.trainee?

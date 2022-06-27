@@ -9,3 +9,6 @@ vi:
     add: "Thêm ngừơi dùng"
     search: "Tìm kiếm"
     search_for: "Tìm kiếm theo tên..."
+    deleted: "Xóa người dùng thành công"
+    deleted_failed: "Xóa người dùng thất bại"
+    created_success: "Tạo người dùng thành công"

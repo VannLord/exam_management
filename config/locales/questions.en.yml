@@ -24,3 +24,5 @@ en:
     create_list_success: "Create list success"
     please_choice_file!: "Please choice file"
     please_choice_correct_file_type!: "Please choice file type is excel file"
+    deleted: "Deleted question successfully"
+    deleted_failed: "Deleted question failed"

@@ -13,7 +13,7 @@
     </div>
     <%= label_tag "name", t("exams.name"), class: "col-md-4"  %>
       <div class="col-md-8">
-        <%= text_field :exam_name, class: "form-control" %>
+        <%= f.text_field :exam_name, class: "form-control" %>
       </div>
     <%= f.submit t("questions.create_list"), class:"btn btn-primary button" %>
   <% end %>

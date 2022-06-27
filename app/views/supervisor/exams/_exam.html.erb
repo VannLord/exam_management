@@ -7,10 +7,10 @@
   <td>
       <%= link_to t("exams.info"), exam_path(exam), class: "btn btn-primary", role: "button" %>
   </td>
-  <td>
+  <!-- <td>
       <%= link_to t("exams.edit"), "#", class: "btn btn-success", role: "button" %>
-  </td>
+  </td> -->
   <td>
-      <%= link_to t("exams.delete"), "#", method: :delete, class: "btn btn-danger", role: "button" %>
+      <%= link_to t("exams.delete"), exam_path(exam), method: :delete, class: "btn btn-danger", role: "button", data: { confirm: "You sure?" } %>
   </td>
 </tr>

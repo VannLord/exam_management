@@ -1,6 +1,26 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                  :bigint           not null, primary key
+#  email               :string(255)
+#  encrypted_password  :string(255)      default(""), not null
+#  name                :string(255)
+#  password_digest     :string(255)
+#  remember_created_at :datetime
+#  remember_digest     :string(255)
+#  role                :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email  (email) UNIQUE
+#
 class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :validatable
   enum role: {supervisor: 1, trainee: 2}
+  after_initialize :init
   attr_accessor :remember_token
   before_save ->{email.downcase!}
   validates :name, presence: true,
@@ -9,9 +29,10 @@ class User < ApplicationRecord
             length: {maximum: Settings.user.email.max_length},
             format: {with: Settings.user.email.regex}
   validates :password, presence: true,
-            length: {minimum: Settings.user.password.min_length}
+                       length: {minimum: Settings.user.password.min_length},
+                       allow_nil: true
   has_many :user_exams, dependent: :destroy
-  scope :sort_by_created_at_desc, ->{order created_at: :desc}
+  scope :sort_by_created_at_asc, ->{order created_at: :asc}
 
   def remember
     self.remember_token = User.new_token
@@ -42,5 +63,9 @@ class User < ApplicationRecord
              end
       BCrypt::Password.create(string, cost: cost)
     end
+  end
+
+  def init
+    self.role ||= 2
   end
 end

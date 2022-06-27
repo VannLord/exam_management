@@ -154,3 +154,66 @@ li.sub-item:hover {
 .user-nav{
   padding-left: 0;
 }
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #ccc;
+  flex: 2;
+  margin-inline: 15px;
+  @include box_sizing;
+}
+input {
+  height: auto !important;
+}
+
+/* forms */
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px;
+  }
+}
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+.form-row{
+  width: 400px;
+  display: flex;
+  margin: 10px
+}
+
+/* universal */
+body {
+  padding-top: 60px;
+}
+section {
+  overflow: auto;
+}
+textarea {
+  resize: vertical;
+}
+.center {
+  text-align: center;
+}
+.center h1 {
+  margin-bottom: 10px;
+}
+
+div {
+  div {
+    margin-top: 10px
+}
+}

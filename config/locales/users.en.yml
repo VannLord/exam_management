@@ -9,3 +9,6 @@ en:
     add: "Add new user"
     search: "Search"
     search_for: "Search for name..."
+    deleted: "Deleted user successfully"
+    deleted_failed: "Deleted user failed"
+    created_success: "Create new user successfully"

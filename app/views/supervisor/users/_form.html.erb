@@ -1,0 +1,20 @@
+<%= form_for @user do |f| %>
+  <%= render "supervisor/shared/error_messages", resource: f.object %>
+  <div class="form-row">
+    <%= f.label :name, t("index.name") %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-row">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="form-row">
+    <%= f.label :password, t("index.password") %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="form-row">
+    <%= f.label :password_confirmation, t("index.confirmation") %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <%= f.submit t("confirm"), class: "btn btn-primary" %>
+<% end %>

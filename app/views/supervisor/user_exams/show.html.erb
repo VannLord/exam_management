@@ -8,6 +8,7 @@
     <%= t("user_exams.trainee_name", name: @trainee.name) %>
 </h3>
 <h4><%= t("user_exams.exam_create", time: l(@user_exam.exam.created_at)) %> </h4>
+<h2><%= t "score" %><%=@user_exam.total_score%> / <%=@total%></h2>
 <div class="user-exam">
   <h2><%= @user_exam.subject.name %></h2>
   <hr>

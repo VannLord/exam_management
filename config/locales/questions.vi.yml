@@ -24,3 +24,5 @@ vi:
     create_list_success: "Tạo danh sách câu hỏi thành công"
     please_choice_file!: "Vui lòng chọn tệp"
     please_choice_correct_file_type!: "Vui lòng chọn tệp là tệp excel"
+    deleted: "Xóa câu hỏi thành công"
+    deleted_failed: "Xóa câu hỏi thất bại"
